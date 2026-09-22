@@ -1,7 +1,7 @@
 // math.test.js
-const test = require('node:test');
-const assert = require('node:assert');
-const { add, multiply } = require('./math');
+import test from 'node:test';
+import assert from 'node:assert';
+import { add, multiply } from './math.js';   
 
 test('adds 2 + 3 to equal 5', () => {
     assert.strictEqual(add(2, 3), 5);
