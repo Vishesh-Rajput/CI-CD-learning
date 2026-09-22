@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test":  "node --test"
+    "test": "node --test"
   },
   "keywords": [],
-  "type": "commonjs"
+  "type": "module",
+  "dependencies": {
+    "@google/genai": "^2.24.0"
+  }
 }
