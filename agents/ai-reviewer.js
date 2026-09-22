@@ -51,7 +51,7 @@ Provide a brief, professional summary of the code quality and list any critical 
         
         // 3. Request structured JSON output to eliminate text parsing bugs
         const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
+            model: 'gemini-3.6-flash',
             contents: prompt,
             config: {
                 responseMimeType: 'application/json',
