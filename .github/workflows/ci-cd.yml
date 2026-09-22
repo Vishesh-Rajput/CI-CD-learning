@@ -1,0 +1,42 @@
+name: Node.js CI/CD Pipeline
+
+# 1. Trigger events: Run this pipeline on every push or pull request to the main branch
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest # Runs on a clean Linux virtual machine
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x] # Test across multiple Node versions
+
+    steps:
+    # Step 2: Download your repository code onto the runner
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # Step 3: Set up Node.js environment
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    # Step 4: Install project dependencies (if any are added later)
+    - name: Install dependencies
+      run: npm install
+
+    # Step 5: Run the automated tests
+    - name: Run tests
+      run: npm test
+
+    # Step 6: Simulate a deployment step (CD part)
+    - name: Simulated Deployment
+      run: |
+        echo "Tests passed successfully!"
+        echo "Deploying application to production server... (Mock step)"
